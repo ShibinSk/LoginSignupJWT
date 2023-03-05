@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 const Signup = () => {
@@ -17,8 +17,8 @@ const Signup = () => {
     try {
       const url = "htt://localhost:3000/api/auth";
       const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token",res.data)
-      window.location="/"
+      localStorage.setItem("token", res.data);
+      window.location = "/";
       //   console.log(err.message);
     } catch (error) {
       if (
@@ -35,38 +35,13 @@ const Signup = () => {
     <div className={styles.login_container}>
       <div className={styles.login_form_container}>
         <div className={styles.left}>
-          <h1>Welcom Back</h1>
-          <Link to="/login">
-            <button type="button" className={styles.white_btn}>
-              Sign in
-            </button>
-          </Link>
-        </div>
-        <div className={styles.right}>
           <form
             action=""
             className={styles.form_container}
             onSubmit={handleSubmit}
           >
-            <h1>Create Account</h1>
-            <input
-              type="text"
-              placeholder="First Name"
-              name="firstName"
-              onChange={handleChange}
-              value={data.firstName}
-              required
-              className={styles.input}
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              name="lastName"
-              onChange={handleChange}
-              value={data.lastName}
-              required
-              className={styles.input}
-            />
+            <h1>Login Account</h1>
+
             <input
               type="text"
               placeholder="email"
@@ -92,6 +67,14 @@ const Signup = () => {
               Sign Up
             </button>
           </form>
+        </div>
+        <div className={styles.right}>
+          <h1>New Here</h1>
+          <Link to="/signup">
+            <button type="button" className={styles.white_btn}>
+              Sign up
+            </button>
+          </Link>
         </div>
       </div>
     </div>
